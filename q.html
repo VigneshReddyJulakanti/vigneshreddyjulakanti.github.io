@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width;initial-scale=1.0">
+       <style>
+           p{font-size:20px;}
+           body{background-image:url("https://drive.google.com/thumbnail?id=16rqE_TzHlu5ZKKgteaQR78ONOsDDOP1j"); background-size:100%;}
+           #po{font-size:40px; color:red;}
+           #qu{font-size:30px; color:blue;}
+           #green{font-size:20Px; color:green;}
+           #saf{font-size:20Px; color:red;}
+           #ans{font-size:70px; color:chocolate;}
+       </style>
+    </head>
+    <body>
+        <h1 id="po">Point less question</h1>
+        Note: only select one option and submit
+        <h2 id="qu">Q) </h2>
+       
+     <p> 1) </p> <input type="radio" id="a1" >  <p id="saf" >       </p>  <br>
+     <p> 2)</p>  <input type="radio" id="a2" > <p id="green" >       </p> <br>
+     <p> 3)</p>  <input type="radio" id="a3" > <p id="saf" >       </p> <br>
+     <p> 4)</p>  <input type="radio" id="a4"> <p id="green" >       </p> <br>
+
+      <button onclick="clicky()" >Submit</button>
+  
+<p id="ans"></p>
+      <script>
+      var x;  
+      function clicky(){
+          if(document.getElementById("a1").checked){document.getElementById("ans").innerHTML="You got 100 marks";}else{document.getElementById("ans").innerHTML="You got 0 marks";}
+
+}
+      </script>
+    </body>
+</html>
