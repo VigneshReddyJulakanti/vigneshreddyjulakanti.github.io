@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta name="viewport" content="width=device-width,intial-scale=1.0">
+
+<style>
+    #echelon{font-weight:bold;color:red;text-decoration:underline;}
+    #enter{font-weight:bold;color:rgb(34, 69, 143);}
+    body{background-image:url("https://drive.google.com/thumbnail?id=16rqE_TzHlu5ZKKgteaQR78ONOsDDOP1j"); background-size:100%;}
+    .apply{font-size:25px;color:rgb(180, 84, 28);}
+    .subhead{font-size:30px;}
+    .table{border-collapse:collapse; width:50%;font-size:35px; color:rgb(182, 11, 125);}
+    #qtable{color:red;}
+    #question{font-size:50px;color:rgb(155, 41, 41);text-decoration:underline;}
+    #solution{font-size:50px;color:rgb(22, 116, 61);text-decoration:underline;}
+    #earank{font-size:50px;color:rgb(22, 146, 43);}
+    #button{position:relative;left:12%;}
+</style>
+    </head>
+    <body>
+
+<h id="echelon" class="subhead" >This will find the Rank of a matrix through Ehelon form</h><br>
+<h id="enter" class="subhead" >Enter matrix values here</h><br>
+
+<input id="a11" placeholder="a11" type="number" >
+<input id="a12" placeholder="a12" type="number" >
+<input id="a13" placeholder="a13" type="number" ><br>
+<input id="a21" placeholder="a21" type="number" >
+<input id="a22" placeholder="a22" type="number" >
+<input id="a23" placeholder="a23" type="number" ><br>
+<input id="a31" placeholder="a31" type="number" >
+<input id="a32" placeholder="a32" type="number" >
+<input id="a33" placeholder="a33" type="number" ><br>
+
+<button id="button" onclick="clicky()" >Click here for answer</button>
+<P id="question"></P>
+<table id="qtable" class="table" border="1px solid black"></table>
+<P id="solution"></P>
+
+<p id="apply0r1" class="apply"></p>
+<p id="apply0r2" class="apply"></p>
+<table id="qtable1" class="table" border="1px solid black"></table>
+<p id="step2" class="apply"> </p>
+<table id="qtable2" class="table" border="1px solid black"></table>
+
+<p id="earank"></p>
+<script>
+    alert("Read this if you open this on phone : keep your phone horizontal for better experience");
+     // storing input values
+     var a0a11;
+     var a0a12;
+     var a0a13;
+     var a0a21;
+     var a0a22;
+     var a0a23;
+     var a0a31;
+     var a0a32;
+     var a0a33;
+
+     // declaring var of question 1
+     var a1a11;
+     var a1a12;
+     var a1a13;
+     var a1a21;
+     var a1a22;
+     var a1a23;
+     var a1a31;
+     var a1a32;
+     var a1a33;
+
+     //declaring var for sol
+     var a2a11;
+     var a2a12;
+     var a2a13;
+     var a2a21;
+     var a2a22;
+     var a2a23;
+     var a2a31;
+     var a2a32;
+     var a2a33;
+
+
+     // declaring var constants
+     var conq1r2;
+     var conq1r3;
+
+     var conq2r3;
+
+function clicky(){ 
+    document.getElementById("question").innerHTML="<h>Question</h>";
+    document.getElementById("solution").innerHTML="<h>Solution</h>";
+    a0a11=document.getElementById("a11").value;
+    a0a12=document.getElementById("a12").value;
+    a0a13=document.getElementById("a13").value;
+    a0a21=document.getElementById("a21").value;
+    a0a22=document.getElementById("a22").value;
+    a0a23=document.getElementById("a23").value;
+    a0a31=document.getElementById("a31").value;
+    a0a32=document.getElementById("a32").value;
+    a0a33=document.getElementById("a33").value;
+    //if(a0a11==0 && a0a12==0 && a0a13==0 && a0a21==0 && a0a22==0 && a023==0 && a0a31==0 && a0a32==0 && a0a33==0){document.getElementById("earank").innerHTML="Rank of Matrix=0";}else{clicky10();}}
+  
+   // function clicky10(){ // extracting input values
+    
+
+    // question table
+    var aer=document.getElementById("qtable");
+    var aer1=aer.insertRow(0);
+    var aer2=aer.insertRow(1);
+    var aer3=aer.insertRow(2);
+    var aer11=aer1.insertCell(0);
+    var aer12=aer1.insertCell(1);
+    var aer13=aer1.insertCell(2);
+    var aer21=aer2.insertCell(0);
+    var aer22=aer2.insertCell(1);
+    var aer23=aer2.insertCell(2);
+    var aer31=aer3.insertCell(0);
+    var aer32=aer3.insertCell(1);
+    var aer33=aer3.insertCell(2);
+
+
+
+
+    aer11.innerHTML=a0a11;
+    aer12.innerHTML=a0a12;
+    aer13.innerHTML=a0a13;
+    aer21.innerHTML=a0a21;
+    aer22.innerHTML=a0a22;
+    aer23.innerHTML=a0a23;
+    aer31.innerHTML=a0a31;
+    aer32.innerHTML=a0a32;
+    aer33.innerHTML=a0a33;
+
+    // solution table one
+    conq1r2=a0a21/a0a11;
+conq1r3=a0a31/a0a11;
+    document.getElementById("apply0r1").innerHTML="Apply:R2=R2-"+conq1r2+"R1";
+    document.getElementById("apply0r2").innerHTML="Apply:R3=R3-"+conq1r3+"R1";
+var tyu=document.getElementById("qtable1");
+var tyu1=tyu.insertRow(0);
+var tyu2=tyu.insertRow(1);
+var tyu3=tyu.insertRow(2);
+var tyu11=tyu1.insertCell(0);
+var tyu12=tyu1.insertCell(1);
+var tyu13=tyu1.insertCell(2);
+var tyu21=tyu2.insertCell(0);
+var tyu22=tyu2.insertCell(1);
+var tyu23=tyu2.insertCell(2);
+var tyu31=tyu3.insertCell(0);
+var tyu32=tyu3.insertCell(1);
+var tyu33=tyu3.insertCell(2);
+
+
+a1a11=a0a11;
+a1a12=a0a12;
+a1a13=a0a13;
+a1a21=a0a21-conq1r2*a0a11;
+a1a22=a0a22-conq1r2*a0a12;
+a1a23=a0a23-conq1r2*a0a13;
+a1a31=a0a31-conq1r3*a0a11;
+a1a32=a0a32-conq1r3*a0a12;
+a1a33=a0a33-conq1r3*a0a13;
+
+
+
+
+
+tyu11.innerHTML=a1a11;
+tyu12.innerHTML=a1a12;
+tyu13.innerHTML=a1a13;
+tyu21.innerHTML=a1a21;
+tyu22.innerHTML=a1a22;
+tyu23.innerHTML=a1a23;
+tyu31.innerHTML=a1a31;
+tyu32.innerHTML=a1a32;
+tyu33.innerHTML=a1a33;
+if(a0a11==0 && a0a12==0 && a0a13==0 && a0a21==0 && a0a22==0 && a0a23==0 && a0a31==0 && a0a32==0 && a0a33==0){document.getElementById("earank").innerHTML="Rank of Matrix=0";}else{ifearlyrank();}
+}
+function ifearlyrank(){ if(a1a22==0 || a1a32==0 ){earlyrank();}else{fun2();}
+///////////////////
+}
+//function fun2
+function fun2(){
+    conq2r3=a1a32/a1a22;
+    var ert=document.getElementById("qtable2");
+        var ert1=ert.insertRow(0);
+        var ert2=ert.insertRow(1);
+        var ert3=ert.insertRow(2);
+        var ert11=ert1.insertCell(0);
+        var ert12=ert1.insertCell(1);
+        var ert13=ert1.insertCell(2);
+        var ert21=ert2.insertCell(0);
+        var ert22=ert2.insertCell(1);
+        var ert23=ert2.insertCell(2);
+        var ert31=ert3.insertCell(0);
+        var ert32=ert3.insertCell(1);
+        var ert33=ert3.insertCell(2);
+
+        ert11.innerHTML=a1a11;
+        ert12.innerHTML=a1a12;
+        ert13.innerHTML=a1a13;
+        ert21.innerHTML=a1a21;
+        ert22.innerHTML=a1a22;
+        ert23.innerHTML=a1a23;
+        ert31.innerHTML=a1a31;
+        ert32.innerHTML=a1a32-conq2r3*a1a22;
+        ert33.innerHTML=a1a33-conq2r3*a1a23;
+        a2a11=a1a11;
+        a2a12=a1a12;
+        a2a13=a1a13;
+        a2a21=a1a21;
+        a2a22=a1a22;
+        a2a23=a1a23;
+        a2a31=a1a31;
+        a2a32=a1a32-conq2r3*a1a22;
+        a2a33=a1a33-conq2r3*a1a23;
+        document.getElementById("step2").innerHTML="Apply:R3=R3-"+conq2r3+"R1";
+
+if(a2a31==0 && a2a32==0 && a2a33==0){rank2();}else{document.getElementById("earank").innerHTML="Rank of Matrix=3";}
+        
+
+}
+function rank2(){
+    if(a2a21==0 && a2a22==0 && a2a23==0){document.getElementById("earank").innerHTML="Rank of Matrix=1";}else{document.getElementById("earank").innerHTML="Rank of Matrix=2";}
+}
+
+
+        //second
+
+        function earlyrank(){
+    if (a1a22==0 && a1a23==0 && a1a32==0 && a1a33==0){
+        document.getElementById("earank").innerHTML="Rank of Matrix=1";
+            }else{earlyrank1();}}
+        function earlyrank002(){
+        document.getElementById("step2").innerHTML="Apply:R2 exchange R3";
+        var ert=document.getElementById("qtable2");
+        var ert1=ert.insertRow(0);
+        var ert2=ert.insertRow(1);
+        var ert3=ert.insertRow(2);
+        var ert11=ert1.insertCell(0);
+        var ert12=ert1.insertCell(1);
+        var ert13=ert1.insertCell(2);
+        var ert21=ert2.insertCell(0);
+        var ert22=ert2.insertCell(1);
+        var ert23=ert2.insertCell(2);
+        var ert31=ert3.insertCell(0);
+        var ert32=ert3.insertCell(1);
+        var ert33=ert3.insertCell(2);
+
+        ert11.innerHTML=a1a11;
+        ert12.innerHTML=a1a12;
+        ert13.innerHTML=a1a13;
+        ert21.innerHTML=a1a31;
+        ert22.innerHTML=a1a32;
+        ert23.innerHTML=a1a33;
+        ert31.innerHTML=a1a21;
+        ert32.innerHTML=a1a22;
+        ert33.innerHTML=a1a23;
+        
+
+
+        document.getElementById("earank").innerHTML="Rank of Matrix=3";
+
+    }
+    function earlyrank2(){
+        document.getElementById("step2").innerHTML="Apply:R2 exchange R3";
+        var ert=document.getElementById("qtable2");
+        var ert1=ert.insertRow(0);
+        var ert2=ert.insertRow(1);
+        var ert3=ert.insertRow(2);
+        var ert11=ert1.insertCell(0);
+        var ert12=ert1.insertCell(1);
+        var ert13=ert1.insertCell(2);
+        var ert21=ert2.insertCell(0);
+        var ert22=ert2.insertCell(1);
+        var ert23=ert2.insertCell(2);
+        var ert31=ert3.insertCell(0);
+        var ert32=ert3.insertCell(1);
+        var ert33=ert3.insertCell(2);
+
+        ert11.innerHTML=a1a11;
+        ert12.innerHTML=a1a12;
+        ert13.innerHTML=a1a13;
+        ert21.innerHTML=a1a31;
+        ert22.innerHTML=a1a32;
+        ert23.innerHTML=a1a33;
+        ert31.innerHTML=a1a21;
+        ert32.innerHTML=a1a22;
+        ert33.innerHTML=a1a23;
+        
+
+
+        document.getElementById("earank").innerHTML="Rank of Matrix=2";
+    }
+        function earlyrank04(){
+        if (a1a22==0 && a1a23!==0){earlyrank002();}
+    }
+
+        function earlyrank03(){
+            if(a1a32==0 && a1a33!==0){
+                document.getElementById("earank").innerHTML="Rank of Matrix=3";
+            }else{
+                earlyrank04();
+            }
+        }
+
+        function earlyrank02(){
+        if(a1a23==0 && a1a22==0){
+            earlyrank2();
+        }else{earlyrank03(); } }
+
+        function earlyrank1(){
+    if (a1a32==0 && a1a33==0){
+        document.getElementById("earank").innerHTML="Rank of Matrix=2";
+    }else{earlyrank02();}}
+
+
+// done by Vignesh Reddy Julakanti
+// kmit clg
+    
+
+</script>
+
+    </body>
+</html>
