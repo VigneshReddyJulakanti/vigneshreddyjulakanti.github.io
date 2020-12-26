@@ -3,24 +3,26 @@
     <head>
         <meta name="viewport" content="width=device-width;initial-scale=1.0">
        <style>
-           p{font-size:20px;}
+           p{font-size:350%;}
            body{background-image:url("https://drive.google.com/thumbnail?id=16rqE_TzHlu5ZKKgteaQR78ONOsDDOP1j"); background-size:100%;}
-           #po{font-size:40px; color:red;}
-           #qu{font-size:30px; color:blue;}
-           #green{font-size:20Px; color:green;}
-           #saf{font-size:20Px; color:red;}
+           #po{font-size:340%; color:red;}
+           #qu{font-size:350%; color:blue;}
+           #green{font-size:300%; color:green;}
+           #saf{font-size:300%; color:red;}
            #ans{font-size:70px; color:chocolate;}
+      .radio{height:30px;width:30px;}
+     
        </style>
     </head>
     <body>
         <h1 id="po">Point less question</h1>
         Note: only select one option and submit
-        <h2 id="qu">Q) </h2>
+        <h2 id="qu">Q) Which can be made in two minutes ?</h2>
        
-     <p> 1) </p> <input type="radio" id="a1" >  <p id="saf" >       </p>  <br>
-     <p> 2)</p>  <input type="radio" id="a2" > <p id="green" >       </p> <br>
-     <p> 3)</p>  <input type="radio" id="a3" > <p id="saf" >       </p> <br>
-     <p> 4)</p>  <input type="radio" id="a4"> <p id="green" >       </p> <br>
+     <p id="saf" >  <input type="radio" id="a1" class="radio"> 1)    Rice     </p>   <br> 
+     <p id="green" > <input type="radio" id="a2" class="radio" >  2)    Maggie     </p> <br>
+     <p id="saf" >  <input type="radio" id="a3" class="radio">3) potato     </p> <br>
+     <p id="green" > <input type="radio" id="a4" class="radio"> 4)  Idly     </p> <br>
 
       <button onclick="clicky()" >Submit</button>
   
@@ -28,7 +30,7 @@
       <script>
       var x;  
       function clicky(){
-          if(document.getElementById("a1").checked){document.getElementById("ans").innerHTML="You got 100 marks";}else{document.getElementById("ans").innerHTML="You got 0 marks";}
+          if(document.getElementById("a2").checked){document.getElementById("ans").innerHTML="You got 100 marks";}else{document.getElementById("ans").innerHTML="You got 0 marks";}
 
 }
       </script>
