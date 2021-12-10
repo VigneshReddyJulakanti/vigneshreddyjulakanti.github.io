@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flames</title>
+</head>
+<body>
+
+    Name 1:<input id="n1" type="text"><br>
+    Name 2:<input id="n2" type="text"><br>
+    <button onclick="boom()">Submit</button>
+
+    <p id="ans"></p>
+    <script>
+
+        function boom(){
+        n1=document.getElementById("n1").value;
+        n2=document.getElementById("n2").value;
+
+        var n11=n1;
+        var n22=n2;
+        
+
+        for(var i=0;i<n1.length;i++){
+            for(var j=0;j<n2.length;j++){
+
+                if(n1[i]==n2[j]){
+                    console.log("boom");
+                    var k=n1.slice(0,i);
+                    k=k+" "+n1.slice(i+1,n1.length);
+                    n1=k;  
+                    var k=n2.slice(0,j);
+                    k=k+" "+n2.slice(j+1,n2.length);
+                    n2=k;                                                                                                                                                                                                                                                   
+                    
+                    j=n2.length;
+                }
+            }
+        }
+        var anslen=0;
+
+        for(var i=0;i<n1.length;i++){
+            if(n1[i]!=" "){
+                anslen=anslen+1;
+            }
+
+        }
+        for(var i=0;i<n2.length;i++){
+            if(n2[i]!=" "){
+                anslen=anslen+1;
+            }
+
+        }
+        // console.log(n1);
+        // console.log(n2);
+        console.log(anslen);
+
+        var flames="flames";
+        var z=0;
+        i=0;
+        while(z<5){
+            for(var h=0;h<anslen;h++,i++){
+                if(i>=flames.length){
+                    i=i-flames.length;
+                }
+                while(flames[i]==" "){
+                        i=i+1;
+                        if(i>=flames.length){
+                                i=i-flames.length;
+                          }
+                }
+                
+                
+                if(i>=flames.length){
+                    i=i-flames.length;
+                }
+                
+
+                if(h==anslen-1){
+                    var k=flames.slice(0,i);
+                    k=k+" " +flames.slice(i+1,flames.length);
+                    flames=k;
+                    z=z+1;
+                    console.log(flames);
+                }
+            }
+            // var l=flames.length;
+            // if(i>=flames.length){
+            // i=anslen%flames.length;
+            // }
+            // var k=flames.slice(0,i);
+            // k=k+flames.slice(i+1,flames.length);
+            // flames=k; 
+            // z=z+1;
+
+        }
+        // flames=flames.replace(" ","");
+        for(var x=0;x<flames.length;x++){
+            if(flames[x]!=" "){
+                flames=flames[x];
+                break;
+            }
+        }
+        // console.log(flames);
+        
+        var j="";
+        switch(flames){
+            case "f":
+                j="friendship";
+                break;
+            case "l":
+                j="love";
+                break;
+            case "a":
+                j="affection"
+                break;
+            case "m":
+                j="marriage";
+                break;
+            case "e":
+                j="enemy";
+                break;
+            case "s":
+                j="sister";
+                break;
+        }
+
+        var ans="The relation between "+n11+" and "+n22+" is "+j;
+        document.getElementById("ans").innerHTML=ans;
+
+
+    }
+    </script>
+    
+</body>
+</html>
